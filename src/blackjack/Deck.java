@@ -82,5 +82,13 @@ public class Deck {
 		
 		return top;
 	}
+	
+	// print top cards in deck
+	public void printDeck(int numToPrint) {
+		
+		for (int i = 0; i < numToPrint && i < myCards.size(); i++) {
+			System.out.println(myCards.get(i).toString());
+		}
+	}
 
 }
