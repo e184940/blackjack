@@ -77,6 +77,9 @@ public class Deck {
 		// remove drawn card from deck
 		myCards.remove(top);
 		
+		// decr number of cards in deck
+		this.numCards--;
+		
 		return top;
 	}
 
