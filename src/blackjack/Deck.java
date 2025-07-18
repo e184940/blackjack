@@ -8,6 +8,10 @@ public class Deck {
 	// arraylist of cards, top card = first index
 	private ArrayList<Card> myCards;
 	
+	public ArrayList<Card> getMyCards() {
+		return myCards;
+	}
+
 	// number of cards in deck
 	private int numCards;
 	
