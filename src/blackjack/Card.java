@@ -29,6 +29,9 @@ public class Card {
 		
 		switch (this.myNumber) {
 		
+		case 1:
+			numString = "Ace";
+			break;
 		case 2:
 			numString = "Two";
 			break;
@@ -64,9 +67,6 @@ public class Card {
 			break;
 		case 13:
 			numString = "King";
-			break;
-		case 1:
-			numString = "Ace";
 			break;
 		}
 		
