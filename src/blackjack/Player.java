@@ -28,7 +28,7 @@ public class Player {
 		
 	}
 
-	private int getSum() {
+	public int getSum() {
 		
 		int handSum = 0;
 		int cardNum;
