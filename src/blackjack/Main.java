@@ -19,7 +19,7 @@ public class Main {
 		dealer.addCard(deck.dealCard());
 		
 		// print initial hans
-		System.out.println("Dealt cards: ");
+		System.out.println("Dealt cards");
 		player.printHand(true);
 		dealer.printHand(false);
 		
@@ -34,6 +34,7 @@ public class Main {
 			// player
 			if (!pDone) {
 				
+				System.out.println();
 				System.out.print("Hit or stay? (h/s): ");
 				ans = scanner.next();
 				System.out.println();
@@ -59,7 +60,7 @@ public class Main {
 				}
 			}
 			
-			System.out.println("-----------------------------");
+			System.out.println();
 		}
 		
 		scanner.close();
@@ -71,6 +72,7 @@ public class Main {
 		int pSum = player.getSum();
 		int dSum = dealer.getSum();
 		
+		System.out.println();
 		if (pSum > dSum && pSum <= 21 || dSum > 21) {
 			System.out.println("Player wins!");
 		} else if (dSum > pSum && dSum <= 21 || pSum > 21) {

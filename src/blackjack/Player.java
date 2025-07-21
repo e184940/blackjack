@@ -11,7 +11,7 @@ public class Player {
 	private int numCards;
 	
 	public Player(String aName) {
-		this.name = name;
+		this.name = aName;
 		this.hand = new ArrayList<Card>();
 		this.numCards = 0;
 	}
@@ -64,13 +64,14 @@ public class Player {
 	
 	public void printHand(boolean showFirstCard) {
 
-		System.out.println(this.name + "'s hand:");
+		System.out.println();
+		System.out.println(this.name + "'s hand: ");
 		
 		for(int c = 0; c < this.numCards; c++) {
 			if (c == 0 && !showFirstCard) {
-				System.out.println(" Hidden card");
+				System.out.println("Hidden card");
 			} else {
-				System.out.print(this.hand.get(c).toString());
+				System.out.println(this.hand.get(c).toString());
 			}
 		}
 	}
