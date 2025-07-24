@@ -6,14 +6,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import blackjack.Card;
-import blackjack.Player;
+import blackjack.Hand;
 import blackjack.Suit;
 
 class TestPlayer {
 	
 	@Test
 	void testAddCard() {
-		Player player = new Player("TESTPLAYER");
+		Hand player = new Hand("TESTPLAYER");
 		
 		// sum <= 21, true
 		Card c1 = new Card(Suit.Club, 5);

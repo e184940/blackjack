@@ -1,3 +1,5 @@
 # blackjack
 
-blackjack OOP, using pictures alongside the terminal
+blackjack OOP, using JavaFX alongside the terminal
+
+next project: visualising sorting algos using JavaFX
