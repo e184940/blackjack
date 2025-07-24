@@ -7,11 +7,11 @@ public class Main {
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-		Deck deck = new Deck(1, true);
+		Deck deck = new Deck(8, true);
 		
 		// initialize players
-		Player player = new Player("Egor");
-		Player dealer = new Player("Dealer");
+		Hand player = new Hand("Egor");
+		Hand dealer = new Hand("Dealer");
 		
 		player.addCard(deck.dealCard());
 		dealer.addCard(deck.dealCard());
@@ -80,6 +80,10 @@ public class Main {
 		} else {
 			System.out.println("Its a tie!");
 		}
+	}
+	
+	public void startGame() {
+		
 	}
 
 }

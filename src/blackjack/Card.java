@@ -1,21 +1,21 @@
 package blackjack;
 
-public class Card {
+public class Card{
 
 	// One of four suits for this card
 	private Suit mySuit;
 	
-	// Number of card, ace = 1..., jack-king = 11-13
+	// Number of card, ace = 1/11..., jack-king = 10
 	private int myNumber;
 	
-	public Card(Suit aSuit, int aNumber) {
+	public Card(Suit aSuit, int aRank) {
 		
 		this.mySuit = aSuit;
 		
-		if (aNumber >= 1 && aNumber <= 13){
-			this.myNumber = aNumber;
+		if (aRank >= 1 && aRank <= 10){
+			this.myNumber = aRank;
 		} else {
-			System.out.println(aNumber + " is not a valid cardNum");
+			System.out.println(aRank + " is not a valid cardNum");
 		}
 	}
 

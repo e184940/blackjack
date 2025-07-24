@@ -2,7 +2,7 @@ package blackjack;
 
 import java.util.ArrayList;
 
-public class Player {
+public class Hand {
 	
 	private String name;
 	
@@ -10,7 +10,7 @@ public class Player {
 	
 	private int numCards;
 	
-	public Player(String aName) {
+	public Hand(String aName) {
 		this.name = aName;
 		this.hand = new ArrayList<Card>();
 		this.numCards = 0;
