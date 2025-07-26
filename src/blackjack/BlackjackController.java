@@ -3,6 +3,8 @@ package blackjack;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
@@ -10,6 +12,8 @@ public class BlackjackController {
 	
 	@FXML private HBox dBox;
 	@FXML private HBox pBox;
+	@FXML private Text pHandSum;
+	@FXML private Text dHandSum;
 	@FXML private Text statusText;
 	@FXML private Button hitButton;
 	@FXML private Button stayButton;
@@ -72,15 +76,37 @@ public class BlackjackController {
 		dBox.getChildren().clear();
 		
 		for (int i = 0; i < dHand.getMyCards().size(); i++) {
+			ImageView cardView;
+			
 			if(i == 0 && !showDealerCards) {
-				dBox.getChildren().add(new Label("Hidden"));
+				Image backImage = new Image(getClass().getResourceAsStream("/cards/BACK.png"));
+				cardView = new ImageView(backImage);
 			} else {
-				dBox.getChildren().add(new Label(dHand.getMyCards().get(i).toString()));
+				Card card = dHand.getMyCards().get(i);
+				Image cardImage = new Image(getClass().getResourceAsStream("/cards/" + card.getImageFileName()));
+				cardView = new ImageView(cardImage);
 			}
+			
+			cardView.setFitHeight(100);
+			cardView.setPreserveRatio(true);
+			dBox.getChildren().add(cardView);
 		}
 		
 		for (Card c : pHand.getMyCards()) {
-			pBox.getChildren().add(new Label(c.toString()));
+			Image cardImage = new Image(getClass().getResourceAsStream("/cards/" + c.getImageFileName()));
+			ImageView cardView = new ImageView(cardImage);
+			
+			cardView.setFitHeight(100);
+			cardView.setPreserveRatio(true);
+			pBox.getChildren().add(cardView);
+		}
+		
+		pHandSum.setText("Players sum: " + pHand.getSum());
+		if(showDealerCards) {
+			dHandSum.setText("Dealers sum: " + dHand.getSum());
+		} else {
+			int visVal = dHand.getMyCards().get(1).getValue();
+			dHandSum.setText("Dealers sum: " + visVal + " + ?");
 		}
 	}
 

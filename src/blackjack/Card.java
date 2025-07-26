@@ -1,18 +1,18 @@
 package blackjack;
 
-public class Card{
+public class Card {
 
 	// One of four suits for this card
 	private Suit mySuit;
-	
-	// Number of card, ace = 1/11..., jack-king = 10
+
+	// Number of card, ace = 1/11..., jack-king = 10-13
 	private int myNumber;
-	
+
 	public Card(Suit aSuit, int aRank) {
-		
+
 		this.mySuit = aSuit;
-		
-		if (aRank >= 1 && aRank <= 13){
+
+		if (aRank >= 1 && aRank <= 13) {
 			this.myNumber = aRank;
 		} else {
 			System.out.println(aRank + " is not a valid cardNum");
@@ -22,56 +22,49 @@ public class Card{
 	public int getMyNumber() {
 		return myNumber;
 	}
-	
-	public String toString() {
-		
-		String numString = "Problem";
-		
-		switch (this.myNumber) {
-		
-		case 1:
-			numString = "Ace";
-			break;
-		case 2:
-			numString = "Two";
-			break;
-		case 3:
-			numString = "Three";
-			break;
-		case 4:
-			numString = "Four";
-			break;
-		case 5:
-			numString = "Five";
-			break;
-		case 6:
-			numString = "Six";
-			break;
-		case 7:
-			numString = "Seven";
-			break;
-		case 8:
-			numString = "Eight";
-			break;
-		case 9:
-			numString = "Nine";
-			break;
-		case 10:
-			numString = "Ten";
-			break;
-		case 11:
-			numString = "Jack";
-			break;
-		case 12: 
-			numString = "Queen";
-			break;
-		case 13:
-			numString = "King";
-			break;
-		}
-		
-		return numString + " of " + this.mySuit.toString();
+
+	public Suit getMySuit() {
+		return mySuit;
 	}
 	
+	public String getImageFileName() {
+		return getRankCode() + "-" + getSuitCode() +".png";
+	}
 
+	private String getRankCode() {
+
+		return switch (myNumber) {
+		case 1 -> "A";
+		case 11 -> "J";
+		case 12 -> "Q";
+		case 13 -> "K";
+		default -> String.valueOf(myNumber);
+		};
+
+	}
+	
+	private String getSuitCode() {
+		return switch(mySuit) {
+		case Club -> "C";
+		case Diamond -> "D";
+		case Heart -> "H";
+		case Spade -> "S";
+		};
+	}
+	
+	@Override
+	public String toString() {
+		return getRankCode() + " of " + mySuit.toString();
+	}
+
+	public int getValue() {
+		if (myNumber > 10) {
+			return 10; // face cards
+		} else if (myNumber == 1) {
+			return 11; // ace
+		} else {
+			return myNumber; // regular cards
+		}
+	}
+	
 }
