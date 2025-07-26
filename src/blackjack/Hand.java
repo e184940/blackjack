@@ -75,5 +75,9 @@ public class Hand {
 			}
 		}
 	}
+	
+	public ArrayList<Card> getMyCards(){
+		return hand;
+	}
 
 }

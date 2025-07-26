@@ -12,7 +12,7 @@ public class Card{
 		
 		this.mySuit = aSuit;
 		
-		if (aRank >= 1 && aRank <= 10){
+		if (aRank >= 1 && aRank <= 13){
 			this.myNumber = aRank;
 		} else {
 			System.out.println(aRank + " is not a valid cardNum");
