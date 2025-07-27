@@ -1,4 +1,4 @@
-package blackjack;
+package GUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ public class BlackjackGUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("blackjack.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/start.fxml"));
         
         Scene scene = new Scene(root, 1000, 600);
         primaryStage.sizeToScene();

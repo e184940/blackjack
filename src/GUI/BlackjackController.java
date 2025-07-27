@@ -1,5 +1,8 @@
-package blackjack;
+package GUI;
 
+import blackjack.Card;
+import blackjack.Deck;
+import blackjack.Hand;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,17 +27,7 @@ public class BlackjackController {
 	
 	@FXML
 	public void initialize() {
-		
-		deck = new Deck(8, true);
-		pHand = new Hand("Player");
-		dHand = new Hand("Dealer");
-		
-		pHand.addCard(deck.dealCard());
-		dHand.addCard(deck.dealCard());
-		pHand.addCard(deck.dealCard());
-		dHand.addCard(deck.dealCard());
-		
-		updateUI(false);
+
 		
 		hitButton.setOnAction(e -> {
 			boolean stillPlaying = pHand.addCard(deck.dealCard());
@@ -109,5 +102,20 @@ public class BlackjackController {
 			dHandSum.setText("Dealers sum: " + visVal + " + ?");
 		}
 	}
+
+	public void setupGame(int numDecks, boolean shuffle) {
+		
+		deck = new Deck(numDecks, shuffle);
+		pHand = new Hand("Player");
+		dHand = new Hand("Dealer");
+		
+		pHand.addCard(deck.dealCard());
+		dHand.addCard(deck.dealCard());
+		pHand.addCard(deck.dealCard());
+		dHand.addCard(deck.dealCard());
+		
+		updateUI(false);
+	}
+
 
 }
